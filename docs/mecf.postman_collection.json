@@ -1,0 +1,453 @@
+{
+	"info": {
+		"_postman_id": "5b274179-2d34-4333-811c-59e742caad6e",
+		"name": "mecf",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "23287982"
+	},
+	"item": [
+		{
+			"name": "Subsidiary logic API (Flask)",
+			"item": [
+				{
+					"name": "Determine key words",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Information Security Development\",\r\n    \"materials\": \"Analyses and defines current and target status. Estimates cost effectiveness, points of risk, opportunities, strengths and weaknesses, with a critical approach. Creates structured plans; establishes time scales and milestones, ensuring optimisation of activities and resources. Manages services portfolio and change requests. Defines delivery quantity and provides an overview of additional documentation requirements. Specifies correct handling of products in accordance with current legislation.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5001/api/keywords"
+					},
+					"response": []
+				},
+				{
+					"name": "Calculate word vectors similarity",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_word_dict\": {\r\n        \"anti-poaching measures aim\": 9.0,\r\n        \"boost tiger populations\": 8.166666666666666,\r\n        \"concerted global action\": 9.0,\r\n        \"exceptional hunting skills\": 9.0,\r\n        \"majestic creatures continue\": 8.333333333333334,\r\n        \"powerful muscles make\": 9.0,\r\n        \"provide safe havens\": 9.0,\r\n        \"raising young cubs\": 9.0,\r\n        \"safeguard tiger habitats\": 8.166666666666666,\r\n        \"sustainable conservation practices\": 8.5\r\n    },\r\n    \"second_word_dict\": {\r\n        \"castle tells\": 4.0,\r\n        \"courtly traditions flourished\": 9.0,\r\n        \"crumbling ruins cloaked\": 9.0,\r\n        \"human ingenuity\": 4.0,\r\n        \"imposing turrets\": 4.0,\r\n        \"majestic structures\": 4.0,\r\n        \"producing intricate tapestries\": 9.0,\r\n        \"rich tapestry\": 4.0,\r\n        \"step back\": 4.0,\r\n        \"timeless monuments\": 4.0\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5001/api/similarity"
+					},
+					"response": []
+				},
+				{
+					"name": "Determine similarity matrix",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_word_dict\": {\r\n        \"20th centuries marked\": 8.5,\r\n        \"efficient soil preparation\": 8.0,\r\n        \"highly mechanized industry\": 8.333333333333334,\r\n        \"mechanized plows\": 4.333333333333334,\r\n        \"mechanized wonders\": 4.333333333333334,\r\n        \"shaping human civilization\": 9.0,\r\n        \"sophisticated steel plows\": 8.0,\r\n        \"technologically advanced forms\": 8.0,\r\n        \"till larger areas\": 9.0,\r\n        \"tractor-mounted plows equipped\": 8.0\r\n    },\r\n    \"second_word_dict\": {\r\n        \"castle tells\": 4.0,\r\n        \"courtly traditions flourished\": 9.0,\r\n        \"crumbling ruins cloaked\": 9.0,\r\n        \"human ingenuity\": 4.0,\r\n        \"imposing turrets\": 4.0,\r\n        \"majestic structures\": 4.0,\r\n        \"producing intricate tapestries\": 9.0,\r\n        \"rich tapestry\": 4.0,\r\n        \"step back\": 4.0,\r\n        \"timeless monuments\": 4.0\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5001/api/simmatrix"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Main API (Nest)",
+			"item": [
+				{
+					"name": "Sign Up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "login",
+									"value": "mukgerinsss",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "pashan1339@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Sug@r1337",
+									"type": "text"
+								},
+								{
+									"key": "role",
+									"value": "admin",
+									"type": "text"
+								}
+							]
+						},
+						"url": "http://localhost:3001/auth/signup"
+					},
+					"response": []
+				},
+				{
+					"name": "Sign In",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "loginOrEmail",
+									"value": "matatas",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Sug@r1337",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": "http://localhost:3001/auth/signin"
+					},
+					"response": []
+				},
+				{
+					"name": "Sign Out",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:3001/auth/signout"
+					},
+					"response": []
+				},
+				{
+					"name": "Change profile",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "login",
+									"value": "matatas",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Sug@r1337",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3001/auth/profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"auth",
+								"profile"
+							],
+							"query": [
+								{
+									"key": "login",
+									"value": "salah",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get profile",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3001/auth/profile"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete profile",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:3001/auth/profile"
+					},
+					"response": []
+				},
+				{
+					"name": "Get competence by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3001/competence/dadd7cde-3162-4bb3-8867-0f3f66b88587"
+					},
+					"response": []
+				},
+				{
+					"name": "Get competences",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3001/competence"
+					},
+					"response": []
+				},
+				{
+					"name": "Get correspondence to course by ids (based on competence)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": "http://localhost:3001/competence/13cf69e7-939a-4a5b-965d-a01fd5d7c1d2/correspondence/f210820e-b06a-4be7-addd-213fbe9b8214"
+					},
+					"response": []
+				},
+				{
+					"name": "Get correspondence matrix to course by ids (based on competence)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3001/competence/13cf69e7-939a-4a5b-965d-a01fd5d7c1d2/correspondence/f210820e-b06a-4be7-addd-213fbe9b8214/matrix"
+					},
+					"response": []
+				},
+				{
+					"name": "Get correspondences to competence by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3001/competence/88ac50a1-f722-47e7-823c-417332778e50/correspondence"
+					},
+					"response": []
+				},
+				{
+					"name": "Create competence (for admin)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "competence_name",
+									"value": "Information Systems Governance",
+									"type": "text"
+								},
+								{
+									"key": "competence_description",
+									"value": "Defines, deploys and controls the management of information systems and services and data in line with the business imperatives. Takes into account all internal and external parameters such as legislation and industry standard compliance to influence risk management and resource deployment to achieve balanced business benefit.",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": "http://localhost:3001/competence"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete competence (for admin)",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:3001/competence/422c35db-aa4c-45d9-9d79-ade87ae55c42"
+					},
+					"response": []
+				},
+				{
+					"name": "Change competence (for admin)",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "competence_name",
+									"value": "i am willing man",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "competence_description",
+									"value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et felis quis ipsum tempor interdum. Cras ac elementum dolor. Integer fringilla turpis tristique elit varius gravida. Sed sit amet facilisis arcu. Aenean nec lacus sollicitudin lectus scelerisque pellentesque nec a magna. Morbi non tempor lectus. Quisque fermentum viverra massa at maximus. Integer feugiat congue felis sed venenatis. Sed commodo mattis pharetra. Ut sit amet porta enim. In semper nulla neque, quis tristique turpis tempor vel. Vestibulum suscipit orci et lorem ultricies, scelerisque vehicula erat vehicula. Sed vehicula tincidunt mollis. Nam tempor, ipsum et rutrum bibendum, libero orci luctus dui, id vestibulum neque nisi vitae odio. In vestibulum sodales pulvinar. Ut lobortis, mauris nec efficitur suscipit, tortor dolor eleifend leo, nec viverra mi mauris ut magna.\n\nSuspendisse vitae nunc nec ante cursus ultrices. Pellentesque ac suscipit sem, at consequat erat. Mauris commodo lacus vel velit sagittis vestibulum. Fusce varius euismod urna in ornare. Fusce pellentesque metus id libero feugiat maximus. Praesent in quam ligula. Proin est ex, pharetra eu magna eget, elementum rutrum ligula.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi at enim sapien. In dictum ut ligula sed consectetur. Proin efficitur, tellus ut luctus vulputate, nulla dui euismod enim, vitae iaculis dui urna sit amet sem. Proin id sodales est. Nulla facilisi.\n\nVestibulum condimentum dictum turpis vel tincidunt. Cras egestas ex nec pretium tempus. Nam sed auctor tortor. Proin lobortis metus ipsum, vitae interdum lacus ultrices vel. Nunc in lorem in sapien consequat sollicitudin. Maecenas et erat enim. Suspendisse pulvinar nec dui venenatis venenatis. Vivamus nec est vel erat viverra mattis eget tincidunt libero. Nulla a nunc sed nunc interdum mattis a ac nulla. Nulla ultricies vitae dui id pretium. Duis mauris velit, mollis ut aliquet at, aliquet et tellus. Donec et est accumsan, porttitor lectus at, tincidunt lorem.\n\nUt id nisi in libero sodales tincidunt quis at justo. Ut sed ante accumsan, condimentum felis eu, convallis dui. Donec volutpat gravida vehicula. Maecenas vitae odio pharetra, luctus ipsum sed, tristique diam. Sed interdum odio nunc, sit amet consequat sapien tristique vitae. Vivamus et nunc non eros commodo bibendum. Vestibulum nec ligula consequat, hendrerit lorem ut, euismod diam. Aliquam erat purus, gravida consectetur consectetur dignissim, auctor convallis sem. Vivamus semper ultricies sem, nec pellentesque ex consectetur vulputate. Suspendisse vulputate tincidunt mi, at facilisis nisl.\n\nUt vel urna lobortis, ultrices turpis sit amet, pharetra felis. Cras tempor commodo lobortis. Ut sit amet quam tincidunt, feugiat metus quis, aliquam purus. Curabitur ut sem a odio lobortis iaculis. Interdum et malesuada fames ac ante ipsum primis in faucibus. In commodo lacus eu ligula vehicula, pretium rhoncus orci faucibus. Sed condimentum, ante feugiat suscipit pharetra, risus dolor auctor ligula, at laoreet turpis eros non ligula. Maecenas scelerisque lorem sit amet bibendum iaculis. Integer mattis tortor nec diam mollis, et lacinia dolor blandit. Nullam tempor eros vel luctus rhoncus. Integer lectus sapien, blandit a tempor quis, eleifend ac ipsum. Duis semper, urna quis porta volutpat, risus est bibendum nisi, sit amet ultrices magna lorem eget lorem. Nullam tristique tortor in porttitor tempus. Nam pretium, sem a cursus congue, mi tellus mattis lacus, eu vehicula risus dui sed tellus.\n\nAliquam in congue nulla, tempus rhoncus quam. Ut a nunc nibh. Nulla eget interdum arcu. Nullam diam ante, porttitor et congue commodo, luctus et tortor. Phasellus ac nulla tortor. Vestibulum elementum, ex et lacinia pellentesque, odio felis facilisis mi, ac facilisis dui nulla in nibh. Vestibulum pharetra sem nibh, et vestibulum tellus tempus iaculis. Ut iaculis augue non dui ultrices convallis. Morbi vel erat laoreet, suscipit dolor pharetra, elementum justo. Vestibulum non lorem quis dolor hendrerit laoreet vel at sem.\n\nCras venenatis neque eget libero accumsan posuere condimentum vel ex. Etiam sed quam consectetur, pulvinar justo ut, dictum quam. Phasellus pellentesque rutrum mauris, at ullamcorper metus aliquam nec. Maecenas commodo dolor in ex consectetur, et pellentesque mi elementum. Aenean non mauris vitae justo sagittis posuere. Nullam ornare, quam id maximus feugiat, tellus sapien tincidunt sem, quis scelerisque quam felis vitae augue. Phasellus et blandit sem. Aliquam at fringilla libero, id condimentum felis. Aliquam in orci a ipsum mollis vestibulum. Nunc cursus consequat iaculis.\n\nAliquam pretium est id venenatis malesuada. Nulla dapibus vehicula lectus iaculis elementum. Praesent non imperdiet justo. Maecenas eleifend ex nisl. Aenean non quam nec urna porttitor tristique. Nam id euismod nisl, vel varius est. Ut sodales gravida leo, nec dapibus nulla accumsan quis. Curabitur a faucibus neque, ac blandit sapien. Aliquam a pharetra dui. Cras ornare massa quam, a placerat orci consectetur id. Aenean rhoncus elit eget libero congue pellentesque. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.\n\nAliquam lobortis quam suscipit urna feugiat, sed vulputate diam viverra. Nam sem nulla, posuere eget enim vel, fermentum dignissim sapien. Etiam interdum neque sed leo euismod interdum. Aenean pulvinar ante nec lectus vehicula egestas posuere a risus. Vestibulum efficitur magna mi, quis consequat augue molestie ac. Nulla scelerisque ligula eget leo congue porta. Ut in mollis nisl. Aenean posuere eros nulla. Praesent posuere lectus eget odio elementum, ac tempor nisl tempus. Vivamus dignissim condimentum nisi, sed dapibus ante egestas ac.",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": "http://localhost:3001/competence/dadd7cde-3162-4bb3-8867-0f3f66b88587"
+					},
+					"response": []
+				},
+				{
+					"name": "Get course by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3001/course/f210820e-b06a-4be7-addd-213fbe9b8214"
+					},
+					"response": []
+				},
+				{
+					"name": "Get courses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3001/course"
+					},
+					"response": []
+				},
+				{
+					"name": "Get batch of courses by ids",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "ids[]",
+									"value": "f210820e-b06a-4be7-addd-213fbe9b8214",
+									"type": "text"
+								},
+								{
+									"key": "ids[]",
+									"value": "188a4552-8672-4509-a0c0-f222d024bd92",
+									"type": "text"
+								}
+							]
+						},
+						"url": "http://localhost:3001/course/batch"
+					},
+					"response": []
+				},
+				{
+					"name": "Get correspondences to course by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3001/course/f210820e-b06a-4be7-addd-213fbe9b8214/correspondence"
+					},
+					"response": []
+				},
+				{
+					"name": "Create course (for admin)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "course_name",
+									"value": "Cases of using nice system managmentasds",
+									"type": "text"
+								},
+								{
+									"key": "course_materials",
+									"value": "Systems management, also known as IT systems management, encompasses a wide array of practices and processes aimed at overseeing the operation and maintenance of information technology (IT) systems within an organization. These systems can include hardware, software, networks, databases, and other components crucial for the functioning of modern businesses.\ndfs\nAt its core, systems management involves tasks such as monitoring, configuring, troubleshooting, and optimizing IT infrastructure to ensure its reliability, security, and efficiency. This discipline plays a vital role in supporting the overall goals and objectives of an organization by facilitating the smooth operation of IT systems and minimizing downtime and disruptions.\n\nOne key aspect of systems management is proactive monitoring and maintenance. IT administrators use specialized tools to continuously monitor the performance and health of IT systems, identifying and addressing potential issues before they escalate into major problems. This proactive approach helps organizations avoid costly downtime and ensures that IT resources are utilized optimally.\n\nAnother important component of systems management is configuration management. This involves establishing and maintaining a standardized configuration for IT assets across the organization, including servers, workstations, routers, and other devices. By enforcing consistent configurations and implementing change management processes, organizations can enhance security, streamline operations, and reduce the risk of configuration-related errors.\n\nAdditionally, systems management encompasses tasks related to software deployment, patch management, and compliance monitoring. IT administrators are responsible for deploying new software applications, ensuring that systems are up to date with the latest security patches and updates, and ensuring compliance with relevant regulations and industry standards.\n\nIn recent years, the rise of cloud computing and virtualization technologies has introduced new challenges and opportunities in systems management. Organizations are increasingly adopting cloud-based solutions and virtualized infrastructure, requiring IT teams to adapt their management practices accordingly. This includes managing hybrid environments that span traditional on-premises data centers and cloud platforms, as well as leveraging automation and orchestration tools to streamline operations and improve agility.\n\nIn summary, systems management is a critical function within IT organizations, responsible for overseeing the operation, maintenance, and optimization of IT systems. By implementing best practices in monitoring, configuration management, software deployment, and compliance, organizations can ensure the reliability, security, and efficiency of their IT infrastructure, enabling them to achieve their business objectives effectively.",
+									"type": "text"
+								}
+							]
+						},
+						"url": "http://localhost:3001/course"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete course by id (for admin)",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:3001/course/8d1b82c8-bd0a-4da7-8cb5-668317835ed2"
+					},
+					"response": []
+				},
+				{
+					"name": "Change course by id (for admin)",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "course_name",
+									"value": "Cloud Technologiess",
+									"type": "text"
+								},
+								{
+									"key": "course_materials",
+									"value": "Cloud technologies represent a transformative shift in the way businesses and individuals access, store, and manage data and applications. At its core, cloud computing enables on-demand delivery of computing resources over the internet, providing scalability, flexibility, and cost-efficiency that traditional on-premises infrastructure cannot match. These technologies encompass a wide range of services, including Infrastructure as a Service (IaaS), Platform as a Service (PaaS), and Software as a Service (SaaS), each catering to different needs and use cases.\n\nInfrastructure as a Service (IaaS) offers fundamental computing resources such as virtual machines, storage, and networking. With IaaS, businesses can rent IT infrastructure on a pay-as-you-go basis, eliminating the need for large upfront investments in hardware. This model provides scalability, allowing organizations to quickly adjust resources based on demand, which is particularly beneficial for handling varying workloads and scaling applications.\n\nPlatform as a Service (PaaS) builds on IaaS by providing a higher-level set of tools and services for developers. PaaS includes operating systems, development frameworks, databases, and other services that facilitate the development, testing, and deployment of applications. By abstracting much of the underlying infrastructure management, PaaS enables developers to focus on writing code and building features, thereby accelerating the development process and reducing operational complexity.\n\nSoftware as a Service (SaaS) delivers fully functional software applications over the internet, accessible via web browsers. SaaS eliminates the need for users to install and maintain software on their local devices, offering convenience and reducing the burden of software management. Common examples of SaaS include email services, customer relationship management (CRM) systems, and enterprise resource planning (ERP) solutions. SaaS applications are typically subscription-based, providing continuous updates and support from the service provider.\n\nOne of the key advantages of cloud technologies is their ability to enhance collaboration and remote work. Cloud-based tools and platforms allow teams to access and share data and applications from anywhere with an internet connection, fostering seamless collaboration and increasing productivity. This capability has become especially crucial in the context of the global shift towards remote and hybrid work environments.\n\nSecurity and compliance are critical aspects of cloud technologies. Leading cloud service providers implement robust security measures, including encryption, access controls, and regular security audits, to protect data and ensure compliance with industry regulations. While concerns about data privacy and security in the cloud persist, advancements in security technologies and practices continue to address these challenges, making the cloud a viable option for even the most sensitive applications.\n\nMoreover, cloud technologies drive innovation by providing access to advanced computing capabilities and cutting-edge technologies. Services such as machine learning, artificial intelligence, big data analytics, and Internet of Things (IoT) platforms are readily available through cloud providers, empowering businesses to experiment and innovate without the need for significant capital investments. This democratization of technology accelerates the development of new products and services, fostering a competitive edge in various industries.",
+									"type": "text"
+								}
+							]
+						},
+						"url": "http://localhost:3001/course/188a4552-8672-4509-a0c0-f222d024bd92"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
