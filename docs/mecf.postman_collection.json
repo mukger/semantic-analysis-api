@@ -98,7 +98,7 @@
 								}
 							]
 						},
-						"url": "http://localhost:3001/auth/signup"
+						"url": "http://localhost:3001/api/auth/signup"
 					},
 					"response": []
 				},
@@ -134,7 +134,7 @@
 								}
 							]
 						},
-						"url": "http://localhost:3001/auth/signin"
+						"url": "http://localhost:3001/api/auth/signin"
 					},
 					"response": []
 				},
@@ -143,7 +143,7 @@
 					"request": {
 						"method": "DELETE",
 						"header": [],
-						"url": "http://localhost:3001/auth/signout"
+						"url": "http://localhost:3001/api/auth/signout"
 					},
 					"response": []
 				},
@@ -181,13 +181,14 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3001/auth/profile",
+							"raw": "http://localhost:3001/api/auth/profile",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "3001",
 							"path": [
+								"api",
 								"auth",
 								"profile"
 							],
@@ -207,7 +208,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:3001/auth/profile"
+						"url": "http://localhost:3001/api/auth/profile"
 					},
 					"response": []
 				},
@@ -216,7 +217,7 @@
 					"request": {
 						"method": "DELETE",
 						"header": [],
-						"url": "http://localhost:3001/auth/profile"
+						"url": "http://localhost:3001/api/auth/profile"
 					},
 					"response": []
 				},
@@ -225,7 +226,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:3001/competence/dadd7cde-3162-4bb3-8867-0f3f66b88587"
+						"url": "http://localhost:3001/api/competence/dadd7cde-3162-4bb3-8867-0f3f66b88587"
 					},
 					"response": []
 				},
@@ -234,7 +235,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:3001/competence"
+						"url": "http://localhost:3001/api/competence"
 					},
 					"response": []
 				},
@@ -257,7 +258,7 @@
 								}
 							]
 						},
-						"url": "http://localhost:3001/competence/13cf69e7-939a-4a5b-965d-a01fd5d7c1d2/correspondence/f210820e-b06a-4be7-addd-213fbe9b8214"
+						"url": "http://localhost:3001/api/competence/13cf69e7-939a-4a5b-965d-a01fd5d7c1d2/correspondence/f210820e-b06a-4be7-addd-213fbe9b8214"
 					},
 					"response": []
 				},
@@ -266,7 +267,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:3001/competence/13cf69e7-939a-4a5b-965d-a01fd5d7c1d2/correspondence/f210820e-b06a-4be7-addd-213fbe9b8214/matrix"
+						"url": "http://localhost:3001/api/competence/13cf69e7-939a-4a5b-965d-a01fd5d7c1d2/correspondence/f210820e-b06a-4be7-addd-213fbe9b8214/matrix"
 					},
 					"response": []
 				},
@@ -275,7 +276,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:3001/competence/88ac50a1-f722-47e7-823c-417332778e50/correspondence"
+						"url": "http://localhost:3001/api/competence/2dcfa205-4242-473c-b80c-8f33efdb76e6/correspondence"
 					},
 					"response": []
 				},
@@ -300,7 +301,7 @@
 								}
 							]
 						},
-						"url": "http://localhost:3001/competence"
+						"url": "http://localhost:3001/api/competence"
 					},
 					"response": []
 				},
@@ -309,7 +310,7 @@
 					"request": {
 						"method": "DELETE",
 						"header": [],
-						"url": "http://localhost:3001/competence/422c35db-aa4c-45d9-9d79-ade87ae55c42"
+						"url": "http://localhost:3001/api/competence/422c35db-aa4c-45d9-9d79-ade87ae55c42"
 					},
 					"response": []
 				},
@@ -335,7 +336,7 @@
 								}
 							]
 						},
-						"url": "http://localhost:3001/competence/dadd7cde-3162-4bb3-8867-0f3f66b88587"
+						"url": "http://localhost:3001/api/competence/dadd7cde-3162-4bb3-8867-0f3f66b88587"
 					},
 					"response": []
 				},
@@ -344,7 +345,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:3001/course/f210820e-b06a-4be7-addd-213fbe9b8214"
+						"url": "http://localhost:3001/api/course/f210820e-b06a-4be7-addd-213fbe9b8214"
 					},
 					"response": []
 				},
@@ -353,7 +354,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:3001/course"
+						"url": "http://localhost:3001/api/course"
 					},
 					"response": []
 				},
@@ -377,7 +378,7 @@
 								}
 							]
 						},
-						"url": "http://localhost:3001/course/batch"
+						"url": "http://localhost:3001/api/course/batch"
 					},
 					"response": []
 				},
@@ -386,7 +387,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:3001/course/f210820e-b06a-4be7-addd-213fbe9b8214/correspondence"
+						"url": "http://localhost:3001/api/course/e37cfe6c-d58b-404b-b41c-921383b071f7/correspondence"
 					},
 					"response": []
 				},
@@ -400,17 +401,17 @@
 							"urlencoded": [
 								{
 									"key": "course_name",
-									"value": "Cases of using nice system managmentasds",
+									"value": "Testing Programsss",
 									"type": "text"
 								},
 								{
 									"key": "course_materials",
-									"value": "Systems management, also known as IT systems management, encompasses a wide array of practices and processes aimed at overseeing the operation and maintenance of information technology (IT) systems within an organization. These systems can include hardware, software, networks, databases, and other components crucial for the functioning of modern businesses.\ndfs\nAt its core, systems management involves tasks such as monitoring, configuring, troubleshooting, and optimizing IT infrastructure to ensure its reliability, security, and efficiency. This discipline plays a vital role in supporting the overall goals and objectives of an organization by facilitating the smooth operation of IT systems and minimizing downtime and disruptions.\n\nOne key aspect of systems management is proactive monitoring and maintenance. IT administrators use specialized tools to continuously monitor the performance and health of IT systems, identifying and addressing potential issues before they escalate into major problems. This proactive approach helps organizations avoid costly downtime and ensures that IT resources are utilized optimally.\n\nAnother important component of systems management is configuration management. This involves establishing and maintaining a standardized configuration for IT assets across the organization, including servers, workstations, routers, and other devices. By enforcing consistent configurations and implementing change management processes, organizations can enhance security, streamline operations, and reduce the risk of configuration-related errors.\n\nAdditionally, systems management encompasses tasks related to software deployment, patch management, and compliance monitoring. IT administrators are responsible for deploying new software applications, ensuring that systems are up to date with the latest security patches and updates, and ensuring compliance with relevant regulations and industry standards.\n\nIn recent years, the rise of cloud computing and virtualization technologies has introduced new challenges and opportunities in systems management. Organizations are increasingly adopting cloud-based solutions and virtualized infrastructure, requiring IT teams to adapt their management practices accordingly. This includes managing hybrid environments that span traditional on-premises data centers and cloud platforms, as well as leveraging automation and orchestration tools to streamline operations and improve agility.\n\nIn summary, systems management is a critical function within IT organizations, responsible for overseeing the operation, maintenance, and optimization of IT systems. By implementing best practices in monitoring, configuration management, software deployment, and compliance, organizations can ensure the reliability, security, and efficiency of their IT infrastructure, enabling them to achieve their business objectives effectively.",
+									"value": "Testing is an essential part of making ssure software works correctly. It involves running your programs to find and fix bugs before they reach the users. When you write code, it's easy to make mistakes, no matter how careful you are. Testing helps you catch these mistakes early and ensures your program does what it's supposed to do and handles errors gracefully. There are several types of tests. Unit tests are the smallest tests, checking individual parts of your code, like functions or methods, to make sure they work correctly. For example, if you have a function that adds two numbers, a unit test would check if it returns the correct sum for various inputs. Integration tests check if different parts of your program work well together. For instance, if you have a function that relies on another function, an integration test would make sure they both work correctly when used together. Functional tests check the complete functionality of your application to ensure that the program meets all the requirements and performs its main tasks correctly. For example, if you’re testing a login feature, you’d check if users can successfully log in with the correct credentials. End-to-end tests are the most comprehensive tests, simulating real user scenarios from start to finish to ensure everything works as expected in a real-world situation. For example, testing an online shopping site from searching for a product to making a purchase. Writing tests involves creating clear test cases where each test focuses on one thing and clearly states what it’s testing. Using testing frameworks like Jest for JavaScript, JUnit for Java, or PyTest for Python makes it easier to write and run tests, as these frameworks provide functions and methods to help you create and organize your tests. Sometimes, your code might depend on external systems like databases or APIs. In these cases, mocking means creating fake versions of these systems to test your code without needing the actual external systems. Automating your tests is crucial; set up your tests to run automatically whenever you make changes to your code to quickly catch any new bugs introduced by your changes. Continuous Integration (CI) tools like Jenkins or GitHub Actions can help with this. Running your tests regularly is important. Run your tests frequently to catch and fix issues as soon as they arise, ensuring your software remains reliable and bug-free.",
 									"type": "text"
 								}
 							]
 						},
-						"url": "http://localhost:3001/course"
+						"url": "http://localhost:3001/api/course"
 					},
 					"response": []
 				},
@@ -419,7 +420,7 @@
 					"request": {
 						"method": "DELETE",
 						"header": [],
-						"url": "http://localhost:3001/course/8d1b82c8-bd0a-4da7-8cb5-668317835ed2"
+						"url": "http://localhost:3001/api/course/8d1b82c8-bd0a-4da7-8cb5-668317835ed2"
 					},
 					"response": []
 				},
@@ -443,7 +444,7 @@
 								}
 							]
 						},
-						"url": "http://localhost:3001/course/188a4552-8672-4509-a0c0-f222d024bd92"
+						"url": "http://localhost:3001/api/course/188a4552-8672-4509-a0c0-f222d024bd92"
 					},
 					"response": []
 				}
