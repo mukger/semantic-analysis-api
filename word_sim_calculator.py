@@ -18,7 +18,7 @@ class WordSimCalculator:
         self.dimensions = dimensions
 
     @staticmethod
-    def calculate_vector_similarity(first_vector, second_vector):
+    def __calculate_vector_similarity(first_vector, second_vector):
         return (np.dot(first_vector, second_vector) /
                 (np.linalg.norm(first_vector) * np.linalg.norm(second_vector)))
 
@@ -71,7 +71,7 @@ class WordSimCalculator:
         averaged_first_vec = np.array(self.average_dict_vector(standardized_fword_dict))
         averaged_second_vec = np.array(self.average_dict_vector(standardized_sword_dict))
 
-        similarity = self.calculate_vector_similarity(averaged_first_vec, averaged_second_vec)
+        similarity = self.__calculate_vector_similarity(averaged_first_vec, averaged_second_vec)
         return similarity
 
     def determine_word_simmatrix(self, first_keyword_dict, second_keyword_dict):
@@ -80,8 +80,8 @@ class WordSimCalculator:
         for fvec_word in first_keyword_dict.keys():
             similarity_dict[fvec_word] = {}
             for svec_word in second_keyword_dict.keys():
-                similarity = self.calculate_vector_similarity(self.determine_phrase_vector(fvec_word),
-                                                              self.determine_phrase_vector(svec_word))
+                similarity = self.__calculate_vector_similarity(self.determine_phrase_vector(fvec_word),
+                                                                self.determine_phrase_vector(svec_word))
                 similarity_dict[fvec_word][svec_word] = float(similarity)
 
         return similarity_dict

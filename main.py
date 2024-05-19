@@ -9,39 +9,30 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 DIMENSIONS = 300
 MODEL_PATH = 'input/GoogleNews-vectors-negative300.bin'
 word_sim_calc = WordSimCalculator(MODEL_PATH, DIMENSIONS)
+text_processor = TextProcessor()
 
 
-@app.route('/api/keywords', methods=['POST', 'OPTIONS'])
-def determine_key_words():
-    response = make_response()
-    if request.method == 'OPTIONS':
-        response.headers.add('Access-Control-Allow-Origin', '*')
-        response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
-        response.headers.add('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS')
-        return response
-
+@app.route('/api/keywords', methods=['POST'])
+def determine_course_keywords():
     data = request.json
-    if 'text' not in data:
-        return jsonify({'error': 'Field "text" is required'}), 400
+    if 'materials' not in data or 'name' not in data:
+        return jsonify({'error': 'Fields "materials" and "name" are required'}), 400
 
-    text = request.json.get('text')
-    text_processor = TextProcessor()
-    keywords = text_processor.find_key_words(text)
-    return jsonify(keywords)
+    materials = request.json.get('materials')
+    name = request.json.get('name')
+
+    course_keywords = text_processor.find_materials_keywords(materials.replace(" / ", " ").replace("/", ""))
+    name_keywords = text_processor.find_name_keywords(name.replace(" / ", " ").replace("/", ""))
+    course_keywords[name_keywords] = 15
+
+    return jsonify(course_keywords)
 
 
-@app.route('/api/similarity', methods=['POST', 'OPTIONS'])
+@app.route('/api/similarity', methods=['POST'])
 def determine_words_similarity():
-    response = make_response()
-    if request.method == 'OPTIONS':
-        response.headers.add('Access-Control-Allow-Origin', '*')
-        response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
-        response.headers.add('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS')
-        return response
-
     data = request.json
     if 'first_word_dict' not in data or 'second_word_dict' not in data:
-        return jsonify({'error': 'Fields "first_word_dict" and "second_word_dict" is required'}), 400
+        return jsonify({'error': 'Fields "first_word_dict" and "second_word_dict" are required'}), 400
 
     first_word_dict = request.json.get('first_word_dict')
     second_word_dict = request.json.get('second_word_dict')
@@ -50,18 +41,11 @@ def determine_words_similarity():
     return jsonify({'similarity': similarity})
 
 
-@app.route('/api/simmatrix', methods=['POST', 'OPTIONS'])
+@app.route('/api/simmatrix', methods=['POST'])
 def determine_similarity_matrix():
-    response = make_response()
-    if request.method == 'OPTIONS':
-        response.headers.add('Access-Control-Allow-Origin', '*')
-        response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
-        response.headers.add('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS')
-        return response
-
     data = request.json
     if 'first_word_dict' not in data or 'second_word_dict' not in data:
-        return jsonify({'error': 'Fields "first_word_dict" and "second_word_dict" is required'}), 400
+        return jsonify({'error': 'Fields "first_word_dict" and "second_word_dict" are required'}), 400
 
     first_word_dict = request.json.get('first_word_dict')
     second_word_dict = request.json.get('second_word_dict')
